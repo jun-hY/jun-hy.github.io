@@ -100,8 +100,6 @@ Code_review/
 ├── docker-compose.yml
 ├── index.html
 ├── server.ts
-├── package.json
-├── tsconfig.json
 └── readme.md
 ```
 
