@@ -226,7 +226,9 @@ jekyll-archives:
     category: /categories/:name/
 
 plugins:
-  - jekyll-target-blank
+  [
+    # - jekyll-target-blank,
+  ]
   
 jekyll_admin:
   hidden_links:
