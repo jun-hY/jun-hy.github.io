@@ -54,7 +54,6 @@ flowchart TD
     class F1,F2,F3,B1,B2,B3,D1,D2 node
     class EXT ext
 ```
-_Mermaid 나중에 수정예정_
 
 사실 아키텍쳐라고하기엔 너무 단촐한 건...
 
