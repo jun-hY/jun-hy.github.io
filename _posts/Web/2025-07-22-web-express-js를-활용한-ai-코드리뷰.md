@@ -23,21 +23,36 @@ mermaid: true
 
 ```mermaid
 flowchart TD
-    F["<b>Frontend (HTML/CSS/JavaScript)</b><br>코드 입력, 탭 UI, 히스토리 관리"]
-    
-    B["<b>Backend (Express + TypeScript)</b><br>├─ server.ts (라우팅)<br>├─ api/reviewApi.ts (AI 통신)<br>└─ services/reviewService.ts (비즈니스로직)"]
-    
-    D["<b>Data Layer (SQLite + DAL)</b><br>├─ db/query.ts (CRUD 작업)<br>└─ db/database.ts (DB 초기화)"]
-    
-    API(("<b>g4f API</b><br>AI 코드 리뷰"))
+    subgraph FE["🖥️ Frontend"]
+        F1["코드 입력"]
+        F2["탭 UI"]
+        F3["히스토리 관리"]
+    end
 
-    F -- "HTTP REST API" --> B
-    B --> D
-    B -. "AI 리뷰 요청" .-> API
+    subgraph BE["⚙️ Backend  ·  Express + TypeScript"]
+        B1["server.ts<br/><i>라우팅</i>"]
+        B2["api/reviewApi.ts<br/><i>AI 통신</i>"]
+        B3["services/reviewService.ts<br/><i>비즈니스 로직</i>"]
+    end
 
-    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
-    classDef api fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px;
-    class API api;
+    subgraph DL["🗄️ Data Layer  ·  SQLite"]
+        D1["db/database.ts<br/><i>DB 초기화</i>"]
+        D2["db/query.ts<br/><i>CRUD 작업</i>"]
+    end
+
+    EXT(["☁️ g4f API<br/><i>AI 코드 리뷰</i>"])
+
+    FE     -- "HTTP REST" -->  B1
+    B1     -->               B3
+    B1     -->               B2
+    B3     -->               D1
+    B3     -->               D2
+    B2     -. "AI 리뷰 요청" .-> EXT
+    EXT    -. "리뷰 결과 반환" .-> B2
+
+    class FE,BE,DL layer
+    class F1,F2,F3,B1,B2,B3,D1,D2 node
+    class EXT ext
 ```
 _Mermaid 나중에 수정예정_
 
