@@ -49,9 +49,9 @@ _Mermaid 나중에 수정예정_
 
 | 스택 | 이유 |
 |------|------|
-| TypeScript | Type 관리 측면 채택 |
+| TypeScript | Type 관리 확보를 위해 채택 |
 | Express.js | 과제 필수 조건 |
-| SQLite3 | 이후 후술 |
+| SQLite3 | 가벼운 DB엔진, 서버 불필요 |
 | Axios | Fetch 기능과 비교를 위함 |
 | Nodemon, ts-node | 개발 환경 편의성 확보 목적 |
 
