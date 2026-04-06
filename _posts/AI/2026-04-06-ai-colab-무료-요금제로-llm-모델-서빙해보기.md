@@ -34,7 +34,7 @@ AI 관련 프로젝트를 구상할 때 마다 항상 GPU 가 진입장벽처럼
 
 ## 2. 프로젝트 진행
 
-### 2-1. 개발 진행
+### 2-1. 모델 세팅
 
 COSS 사업단에서 진행한 Co-Week 에서 진행한 랭체인을 활용한 AI 챗봇 구현 강의에서 교수님께서 제공해주신 langchain 템플릿을 사용했다.
 
@@ -145,7 +145,9 @@ RAG_TEMPLATE = """<|system|>
 <|assistant|>"""
 ```
 
-채팅 로직은 아래와 같이 구현되었다.
+### 2-2. 채팅 로직 구현
+
+채팅 로직은 아래와 같이 구현되었다. 강의 자료에 있는 부분을 거의 그대로 사용하였다.
 
 ```py
 def ask_llm(user_message: str) -> str:
@@ -167,6 +169,8 @@ if query := st.chat_input("질문을 입력하세요."):
     st.chat_message("assistant").write(response)
 ```
 
+
+### 2-3. 모델 서빙
 
 이제 `Streamlit` 을 사용하여 모델을 서빙하는 부분을 작성할 차례이다.
 
@@ -200,14 +204,14 @@ print(f"Streamlit 앱 접속 링크: {public_url}")
 
 그래도 어느 정도의 성과를 나열해보자면
 
-✅ RAG 를 활용한 LLM 할루시네이션 축소<br>
+✅ RAG 를 활용한 LLM 할루시네이션 축소법<br>
 ✅ Langchain을 활용한 모델 서빙 방법<br>
-✅ transformers pipeline 외 프롬프트 템플릿을 이용한 tools 정의법
+✅ transformers pipeline 외 프롬프트 템플릿을 이용한 tools 정의
 
 정도 인 것 같다.
 
 ## 4. 후기
 
-앞써 언급했 듯 강의 자료 + AI 활용으로 langchain + streamlit 으로 모델 서빙의 골조 정도를 알아본 프로젝트였다.
+앞써 언급했 듯 강의 자료 + AI 활용으로 `langchain` + `streamlit` (+ `RAG`) 을 통한 모델 서빙의 골조 정도를 알아본 프로젝트였다.
 
-이후, `airllm` 을 사용하여 필자의 pc 에서 llm 모델을 구동하는 프로젝트를 진행하여 모델 서빙하는 방법에 대해 숙달해보는 시간을 가져 보아야겠다.
+이후, `airllm` 을 사용하여 로컬에서 llm 모델을 구동하는 프로젝트를 진행하여 모델 서빙하는 방법에 대해 숙달해보는 시간을 가져 보아야겠다.
