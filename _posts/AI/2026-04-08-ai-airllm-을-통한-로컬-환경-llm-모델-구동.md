@@ -46,7 +46,7 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
 
 현재, `AirLLM` 프로젝트는 의존성이 박살난 상태다. 나도 알고 싶지 않았다.
 
-구글을 뒤져 나와 같은 경험을 한 선배님들의 글을 찾아보며 의존성을 박살난 원인을 찾았다.
+구글을 뒤져 나와 같은 경험을 한 선배님들의 글을 찾아보며 의존성을 해결하기 위한 방법을 찾았다.
 
 `transformers` 와 `optimum`은 아래와 같은 버전으로 설치하자.
 
